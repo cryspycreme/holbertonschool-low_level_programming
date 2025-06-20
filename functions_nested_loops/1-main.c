@@ -1,6 +1,13 @@
 #include "main.h"
 
-void print_alphabet(void)
+/**
+ * main - Entry pointe
+ *
+ * Return: Always 0.
+ */
+
+int main(void)
 {
-	_putchar();
+	print_alphabet();
+	return (0);
 }
