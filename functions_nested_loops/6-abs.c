@@ -5,7 +5,7 @@
  * _abs- computes the absolute value of an integer
  *
  * Description: computes the absolute value of an integer
- * @int: interger to be checked
+ * @i: interger to be checked
  * Return: if i < 0, return -i; else return i
  */
 
