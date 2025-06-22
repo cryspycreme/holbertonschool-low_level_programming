@@ -12,17 +12,39 @@
 
 void times_table(void)
 {
-	int array[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
 
-	int i = 0;
-
-	while (i <= 9)
+	int x;
+	int y;
+	
+	while (y <= 9)
 	{
-	int result;
+		x = 0;
+		while (x <= 9)
+	{
+		int result;
 
-	result = i * array[0];
-
-	printf("%d", result);
+	result = (x * y);
+	
+	if (result <= 9)
+	{
+	_putchar(' ');
+	_putchar(result + 48);
 	}
-	i++;
+	else
+	{
+	_putchar((result / 10) + 48);
+	_putchar((result % 10) + 48);
+	}
+	
+	if (x != 9)
+	{
+	_putchar(',');
+	_putchar(' ');
+	}
+	x++;
+	}	
+	_putchar('\n');
+	y++;
+	}
 }
+
