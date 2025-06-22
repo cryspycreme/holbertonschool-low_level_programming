@@ -6,7 +6,6 @@
  * times_table - prints the 9 times tables
  *
  * Description: prints 9 times tables starting at 0.
- *
  * Return: void.
  */
 
@@ -27,8 +26,11 @@ void times_table(void)
 	
 	if (result <= 9)
 	{
-	_putchar(' ');
-	_putchar(result + 48);
+		if (x != 0)
+		{
+			_putchar(' ');
+		}
+		_putchar(result + 48);
 	}
 	else
 	{
