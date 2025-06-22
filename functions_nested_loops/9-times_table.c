@@ -30,12 +30,12 @@ void times_table(void)
 		{
 			_putchar(' ');
 		}
-		_putchar(result + 48);
+		_putchar(result + '0');
 	}
 	else
 	{
-	_putchar((result / 10) + 48);
-	_putchar((result % 10) + 48);
+	_putchar((result / 10) + '0');
+	_putchar((result % 10) + '0');
 	}
 	
 	if (x != 9)
