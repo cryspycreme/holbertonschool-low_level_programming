@@ -4,7 +4,7 @@
 
 /**
  * times_table - prints the 9 times tables
- *
+ * 
  * Description: prints 9 times tables starting at 0.
  * Return: void.
  */
@@ -49,4 +49,3 @@ void times_table(void)
 	y++;
 	}
 }
-
