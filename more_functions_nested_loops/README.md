@@ -13,5 +13,6 @@ For additional information, refer to Holberton Week 4 - C More Functions and Nes
 				Where n is the number of times the character _ should be printed
 				The line should end with a \n
 				If n is 0 or less, the function should only print \n
+7-print_diagonal.c: Write a function that draws a diagonal line on the terminal.
 
 This repo is maintained by cryspycreme. 
