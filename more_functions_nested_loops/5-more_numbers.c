@@ -8,23 +8,19 @@
 
 void more_numbers(void)
 {
-	int i = 1, k; /* i = outer loop (ie. the rows) */
+	int i = 1, k;
 
 	while (i <= 10)
 	{
-		k = 0; /*k = inner loop (ie. the columns)*/
+		k = 0;
 
 		while (k <= 14)
 		{
-			if (k > 9)
+			if (k >= 10)
 			{
-				_putchar((k / 10) + '0');
-				_putchar((k % 10) + '0');
+				_putchar((k / 10) + '0'); /*prints only if k >= 10*/
 			}
-			else
-			{
-				_putchar(k + '0');
-			}
+			_putchar((k % 10) + '0'); /*prints while k <= 14 and k < 10*/
 			k = k + 1;
 		}
 		_putchar('\n');
