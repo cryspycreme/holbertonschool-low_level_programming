@@ -23,8 +23,6 @@ For additional information, refer to Holberton Week 4 - C More Functions and Nes
 9-fizz_buzz.c: Write a program that prints the numbers from 1 to 100, followed by a new line. But for multiples of three print Fizz instead of the number and for the multiples of five print Buzz. For numbers which are multiples of both three and five print FizzBuzz.
 				Each number or word should be separated by a space
 				You are allowed to use the standard library
-
-
-
+10-print_triangle.c: Write a function that prints a triangle, followed by a new line.
 
 This repo is maintained by cryspycreme. 
