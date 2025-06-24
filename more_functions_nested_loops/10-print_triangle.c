@@ -12,7 +12,7 @@ void print_triangle(int size)
 	if (size > 0)
 	{
 		int row = 1, num_spaces, num_hashes = 1;
-		
+
 		while (row <= size)
 		{
 			num_spaces = 0;
@@ -22,7 +22,7 @@ void print_triangle(int size)
 				_putchar(' ');
 				num_spaces++;
 			}
-			
+
 			num_hashes = 1;
 
 			while (num_hashes <= size - num_spaces)
@@ -34,7 +34,7 @@ void print_triangle(int size)
 		row++;
 		}
 	}
-	else 
+	else
 	{
 		_putchar('\n');
 	}
