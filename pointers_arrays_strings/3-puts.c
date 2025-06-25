@@ -12,10 +12,9 @@ void _puts(char *str)
 {
 	int i;
 
-	for (i = 0; i < 63; i++)
+	for (i = 0; str[i] != '\0'; i++)
 	{
-		_putchar(*str);
-		str++;
+		_putchar(str[i]); /*NOTE: you do not need to add an increment to str here (str++), as the location of string is implicitly increased by i*/
 	}
 	_putchar('\n');
 }
