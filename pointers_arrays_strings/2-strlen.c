@@ -12,10 +12,9 @@ int _strlen(char *s)
 {
 	int i = 0; /* loop counter*/
 
-	while (*s != '\0') /*a string is the same as an array of characters*/
+	while (s[i] != '\0') /*a string is the same as an array of characters*/
 	{
-		s++; /*this loops through the index position in the array*/
-		i++; 
+		i++;
 	}
 	return (i);
 }
