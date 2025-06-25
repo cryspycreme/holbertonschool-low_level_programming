@@ -19,8 +19,6 @@ void print_rev(char *s)
 		/*do not reset value of length as this will be used in next for loop*/
 	}
 	
-	printf("%d", length);
-
 	for (i = length - 1; i >= 0; i--)
 	{		
 		putchar(s[i]);
