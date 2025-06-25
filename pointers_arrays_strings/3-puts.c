@@ -14,7 +14,7 @@ void _puts(char *str)
 
 	for (i = 0; str[i] != '\0'; i++)
 	{
-		_putchar(str[i]); /*NOTE: you do not need to add an increment to str here (str++), as the location of string is implicitly increased by i*/
+		_putchar(str[i]);
 	}
 	_putchar('\n');
 }
