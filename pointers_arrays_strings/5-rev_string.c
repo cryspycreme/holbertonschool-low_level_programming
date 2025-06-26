@@ -7,7 +7,7 @@
 * Return: void
 */
 
-void rev_string (char *s)
+void rev_string(char *s)
 {
 	int count = 0;
 	int length;
@@ -21,7 +21,7 @@ void rev_string (char *s)
 	count = count - 1;
 	length = count;
 
-	while (count > (length /2))
+	while (count > (length / 2))
 	{
 		temp = s[count];
 		s[count] = s[length - count];
