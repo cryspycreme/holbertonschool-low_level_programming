@@ -7,28 +7,26 @@
 * Return: void
 */
 
-void rev_string(char *s)
+void rev_string (char *s)
 {
-    /*temp array to store elements in reverse order*/
-    int temp[10];
+	int count = 0;
+	int length;
+	char temp;
 
-    int i; /*loop counter*/
+	while (s[count] != '\0')
+	{
+		count = count + 1;
+	}
 
-    /*Copy elements from original array to temp in reverse order*/
-    for (i = 0; i < 10; i++)
-    {
-        temp[i] = s[10 - 2 - i];
-        /* printf("%c", temp[i]);*/
-    }
+	count = count - 1;
+	length = count;
 
-    /*Copy elements back to original array*/
-    for (i = 0; i < 10; i++)
-    {
-        /* printf("%c", s[i]);*/
-        /* printf(" ");*/
-        /* printf("%c", temp[i]);*/
-        /* printf("\n");*/
+	while (count > (length /2))
+	{
+		temp = s[count];
+		s[count] = s[length - count];
+		s[length - count] = temp;
 
-        s[i] = temp[i];
-    }
+		count = count - 1;
+	}
 }
