@@ -11,11 +11,11 @@
 int _atoi(char *s)
 {
 	int i = 0;/*count of index in array*/
-	int finalnum = 0;/*no. to be returned*/
 	int digit;/*actual ch digit 0-9*/
 	int evalnum = 0;/*currently eval; 1 if true, 0 if false*/
 	int evaldone = 0;/*finished evaluating*/
 	int sign = 1;
+	unsigned int finalnum = 0;
 
 	while (s[i] != '\0')
 	{
