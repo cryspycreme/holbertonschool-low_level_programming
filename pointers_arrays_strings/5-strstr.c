@@ -12,28 +12,24 @@ char *_strstr(char *haystack, char *needle)
 {
 	int i = 0;
 	int j = 0;
-	/*haystack = First, solve the problem. Then, write the code.*/
-	/*needle = solve*/
 
-	while (haystack[i] != '\0')
+	while (haystack[i]!= '\0')
 	{
-		/*checks if the byte in haystack matches the first letter in needle*/
-		if (haystack[i] == needle[0])
-		{
-			j = 0;
+		j = 0;
 
-			/*potential match found, now compare rest of needle*/
-			while (needle[j] != '\0' && haystack[i+j] != '\0' && haystack[i + j] == needle[j])
+		while (needle[j] != '\0')
+		{
+			if (haystack[i + j] != needle[j])
 			{
-				j++;
+				break;
 			}
-			/*if entire match found, return pointer to 1st match*/
-			if (needle[j] == '\0')
-			{
-				return (haystack + i);
-			}
+		j++;
+		}
+		if (needle[j] == '\0')
+		{
+			return (haystack + i);
 		}
 	i++;
 	}
-	return (0);
+return (0);
 }
