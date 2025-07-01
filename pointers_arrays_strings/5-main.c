@@ -11,7 +11,7 @@ int main(void)
    /* char *s = "hello, world";
     char *f = "world";*/
 	char *s = "First, solve the problem. Then, write the code.";
-	char *f = "solve";
+	char *f = "Holberton";
     char *t;
 
     t = _strstr(s, f);

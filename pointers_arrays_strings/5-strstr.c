@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
 * _strstr- finds the first occurrence of the substring in haystack
@@ -10,21 +11,29 @@
 char *_strstr(char *haystack, char *needle)
 {
 	int i = 0;
-	int j;
+	int j = 0;
+	/*haystack = First, solve the problem. Then, write the code.*/
+	/*needle = solve*/
 
-	while (needle[i] != '\0')
+	while (haystack[i] != '\0')
 	{
-		j = 0;
-
-		while (haystack[j] != '\0')
+		/*checks if the byte in haystack matches the first letter in needle*/
+		if (haystack[i] == needle[0])
 		{
-			if (haystack[j] == needle[i] && haystack[j + 1] == needle[i + 1])
+			j = 0;
+
+			/*potential match found, now compare rest of needle*/
+			while (needle[j] != '\0' && haystack[i+j] != '\0' && haystack[i + j] == needle[j])
 			{
-				return (haystack + j);
+				j++;
 			}
-		j++;
+			/*if entire match found, return pointer to 1st match*/
+			if (needle[j] == '\0')
+			{
+				return (haystack + i);
+			}
 		}
 	i++;
 	}
-return (0);
+	return (0);
 }
