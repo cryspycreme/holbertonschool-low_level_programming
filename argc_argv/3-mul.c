@@ -1,5 +1,6 @@
 #include "main.h"
 #include <stdio.h>
+#include <stdlib.h>
 
 /**
  * main- Entry point
@@ -12,18 +13,21 @@
 int main(int argc, char *argv[])
 {
 	int result = 1;
-	int v_ind = 1;
+	int i = 1;
 
 	if (argc > 1)
 	{
-		while (v_ind < argc)
-		result = atoi(argv[v_ind]) * result;
-		v_ind++;
-		return (result);
+		while (i < argc)
+		{
+		result = atoi(argv[i]) * result;
+		i++;
+		}
+		printf("%d\n", result);
 	}
 	else
-	(
+	{
 		printf("Error\n");
 		return (1);
-	)
+	}
+return (0);
 }
