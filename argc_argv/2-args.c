@@ -9,7 +9,7 @@
  * Return: Always 0 (Success)
  */
 
-int main (int argc, char *argv[])
+int main(int argc, char *argv[])
 {
 	int i = 0;
 
@@ -18,7 +18,6 @@ int main (int argc, char *argv[])
 		printf("%s\n", argv[i]);
 		i++;
 	}
-	
 	return (0);
 }
 
