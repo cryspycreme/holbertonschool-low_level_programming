@@ -1,6 +1,7 @@
 #include "main.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <ctype.h>
 
 /**
  * main- Entry point
@@ -17,19 +18,19 @@ int main(int argc, char *argv[])
 
 	if (argc <= 1)
 	{
-		printf("%d", 0);
+		printf("%d\n", 0);
 	}
 
 	while (i < argc)
 	{
-		if (argv[i] >= 48 && argv[i] <= 57)
+		if (!isdigit[argv[i])
 		{
-			sum = atoi(argv[i]) + sum;
+			printf("Error\n");
+                        return (1);
 		}
 		else
 		{
-			printf("Error\n");
-			return (1);
+			sum = atoi(argv[i]) + sum;
 		}
 	i++;
 	}
