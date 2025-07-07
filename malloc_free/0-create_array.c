@@ -13,7 +13,7 @@ char *create_array(unsigned int size, char c)
 {
 	unsigned int i;
 	char *arr;
-	
+
 	/*return null is size is 0*/
 	if (size == 0)
 	{
