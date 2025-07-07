@@ -29,7 +29,14 @@ char *create_array(unsigned int size, char c)
 
 	while (i <= size)
 	{
-		arr[i] = c;
+		if (arr == NULL)
+		{
+			return (0);
+		}
+		else
+		{
+			arr[i] = c;
+		}
 		i++;
 	}
 
