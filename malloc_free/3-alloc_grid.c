@@ -16,7 +16,7 @@ int **alloc_grid(int width, int height)
 
 	if (width <= 0 || height <= 0)
 		return (NULL);
-	/*allocate memory for row pointers (height)*/
+
 	arr = malloc(sizeof(int *) * (height));
 	if (arr == NULL)
 	{
@@ -24,7 +24,6 @@ int **alloc_grid(int width, int height)
 		return (NULL);
 	}
 
-	/*for each row, allocate memory for the columns*/
 	i = 0;
 
 	while (i < height)
@@ -36,11 +35,6 @@ int **alloc_grid(int width, int height)
 			return (NULL);
 		}
 		i++;
-	}
-	/*create array*/
-	if (arr == NULL)
-	{
-		return (NULL);
 	}
 	j = 0;
 	while (j < height)
