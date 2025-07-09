@@ -21,8 +21,10 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 	/*allocate size in memory for array*/
 	array = malloc(nmemb * size);
 	if (array == NULL)
+	{	
+		free(array);
 		return (NULL);
-
+	}
 	/*initialises everything in array to 0*/
 	while (i < nmemb)
 	{
