@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include <stdlib.h>
 #include "main.h"
 
@@ -28,15 +29,18 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		j++;
 	}
 	if (n >= j)
+	{
+		n = j;
 		length = i + j + 1;
+	}
 	else
+	{
 		length = i + n + 1;
+	}
 	concat_string = malloc(sizeof(char) * length);
 	if (concat_string == NULL)
-	{
-		free(concat_string);
 		return (NULL);
-	}
+	
 	i = 0;
 	while (s1[i] != '\0')
 	{
