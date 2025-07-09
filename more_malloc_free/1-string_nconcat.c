@@ -34,13 +34,11 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		length = i + j + 1;
 	}
 	else
-	{
 		length = i + n + 1;
-	}
+
 	concat_string = malloc(sizeof(char) * length);
 	if (concat_string == NULL)
 		return (NULL);
-	
 	i = 0;
 	while (s1[i] != '\0')
 	{
