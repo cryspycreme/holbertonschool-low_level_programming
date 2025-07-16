@@ -38,7 +38,7 @@ int main(int argc, char *argv[])
 		_putchar('\n');
 		exit(99);
 	}
-	if (((argv[2][0] == '/' || argv[2][0] == '%') || argv[2][1] != '\0'))
+	if (((argv[2][0] == '/' || argv[2][0] == '%') && num2 == 0) || argv[2][1] != '\0')
 	{
 		_putchar('E');
 		_putchar('r');
