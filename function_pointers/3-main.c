@@ -28,7 +28,7 @@ int main(int argc, char *argv[])
 	num1 = atoi(argv[1]);
 	num2 = atoi(argv[3]);
 	operator = get_op_func(argv[2]);
-	if (operator == NULL)
+	if (operator == NULL || argv[2][1] != '\0')
 	{
 		_putchar('E');
 		_putchar('r');
@@ -38,7 +38,7 @@ int main(int argc, char *argv[])
 		_putchar('\n');
 		exit(99);
 	}
-	if (((argv[2][0] == '/' || argv[2][0] == '%') && num2 == 0) || argv[2][1] != '\0')
+	if (((argv[2][0] == '/' || argv[2][0] == '%') && num2 == 0))
 	{
 		_putchar('E');
 		_putchar('r');
