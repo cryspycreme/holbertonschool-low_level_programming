@@ -6,7 +6,6 @@
  * get_op_func- selects the correct function to perform the operation
  *
  * @s: operator passed as an argument
- * @int: integers passed into operator function
  * Return: pointer to the function that corresponds to the operator
  */
 
