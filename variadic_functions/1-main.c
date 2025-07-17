@@ -1,14 +1,12 @@
-#include <stdarg.h>
-#include <stdio.h>
 #include "variadic_functions.h"
 
 /**
- * print_numbers- prints numbers, followed by \n
+ * main - check the code
  *
- * @separator: string separator to be printed between no.s
- * @n: no. of integers passed to the function
- * Return: void. 
-
-void print_numbers(const char *separator, const unsigned int n, ...)
+ * Return: Always 0.
+ */
+int main(void)
 {
+    print_numbers(", ", 4, 0, 98, -1024, 402);
+    return (0);
 }
