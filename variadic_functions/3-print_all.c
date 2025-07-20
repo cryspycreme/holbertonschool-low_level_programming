@@ -65,8 +65,8 @@ void print_all(const char *const format, ...)
 		{NULL, NULL}};
 
 	va_list args;
-	int i = 0, j = 0, first = 1;
-
+	int i = 0, j = 0;
+	char *separator = "";
 	va_start(args, format);
 
 	while (format != NULL && format[i] != '\0')
@@ -77,17 +77,14 @@ void print_all(const char *const format, ...)
 		{
 			if (types[j].type[0] == format[i])
 			{
-				if (first != 1)
-				{
-					printf(", ");
-				}
+				printf("%s", separator);
 				types[j].f(args);
-				first = 0;
+				separator = ", ";
 				break;
 			}
-			j++;
+			++j;
 		}
-		i++;
+		++i;
 	}
 	va_end(args);
 	printf("\n");
