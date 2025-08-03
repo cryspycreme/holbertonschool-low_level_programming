@@ -40,13 +40,13 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 	}
 	while (prev_count < idx - 1)
 	{
+		if (node_prev == NULL) /*index out of range*/
+        	{
+                	free(new_node);
+                	return (NULL);
+        	}
 		node_prev = node_prev->next;
 		prev_count++;
-	}
-	if (node_prev == NULL) /*index out of range*/
-	{
-		free(new_node);
-		return (NULL);
 	}
 	new_node->next = node_prev->next;
 	new_node->prev = node_prev;
