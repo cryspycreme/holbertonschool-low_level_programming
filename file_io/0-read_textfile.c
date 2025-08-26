@@ -17,7 +17,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
     ssize_t bytesRead, bytesW;
 
     /*open the file*/
-    file_desc = open(filename, O_RDWR);
+    file_desc = open(filename, O_RDWR | O_RDONLY);
         if (file_desc == -1)
 	      return (0);
 
