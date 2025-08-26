@@ -3,13 +3,12 @@
 #include <fcntl.h>
 #include "main.h"
 
-#define BUF_SIZE 1024
+#define BUF_SIZE 10000
 
 #include <stdio.h>
 #include <unistd.h>
 #include <fcntl.h>
 
-#define BUF_SIZE 1024
 
 ssize_t read_textfile(const char *filename, size_t letters)
 {
