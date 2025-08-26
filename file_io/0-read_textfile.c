@@ -17,18 +17,17 @@ ssize_t read_textfile(const char *filename, size_t letters)
     ssize_t bytesRead, bytesW;
 
     /*open the file*/
-    file_desc = open(filename, O_RDWR, S_IRUSR);
+    if (filename == NULL)
+            return (0);
+    
+    file_desc = open(filename, O_RDONLY, S_IRUSR);
         if (file_desc == -1)
 	      return (0);
 
     if (file_desc != -1)
     {
-        /*if filename is empty*/
-        if (filename == NULL)
-            return (0);
-
-        /*read the file*/
-        bytesRead = read(file_desc, buf, letters);
+	/*read the file*/
+	    bytesRead = read(file_desc, buf, letters);
 
         /*if read fails*/
         if (bytesRead == -1)
