@@ -55,7 +55,7 @@ int main(int argc, char *argv[])
 {
 	char *file_from = argv[1];
 	char *file_to = argv[2];
-	int fd_file_from, bytesR, bytesW, fd_file_to, close_ff, close_ft, total_written;
+	int fd_file_from, bytesR, bytesW, fd_file_to, close_ff, close_ft, total_wr;
 	char cp_ff[BUF_SIZE];
 
 	if (argc != 3)
@@ -76,18 +76,18 @@ int main(int argc, char *argv[])
 	}
 	while ((bytesR = read(fd_file_from, cp_ff, 1024))> 0)
 	{
-		total_written = 0;
+		total_wr = 0;
 
-		while (total_written < bytesR)
+		while (total_wr < bytesR)
 		{
-			bytesW = write(fd_file_to, cp_ff, bytesR);
+			bytesW = write(fd_file_to, cp_ff + total_wr, bytesR - total_wr);
                 	if (bytesW == -1)
 			{
                         	close(fd_file_from);
 				close(fd_file_to);
 				print_error(99, file_to, 0);
 			}
-			total_written = total_written + bytesW;
+			total_wr = total_wr + bytesW;
 		}
 	}
 	if (bytesR == -1)
