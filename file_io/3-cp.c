@@ -72,14 +72,17 @@ int main(int argc, char *argv[])
 	if (fd_file_to == -1)
 		print_error(99, file_to, 0);
 
-	while ((bytesR = read(fd_file_from, cp_ff, 1024)) > 0)
+	bytesR = read(fd_file_from, cp_ff, 1024);
+	if (bytesR == -1)
+                print_error(98, file_from, 0);
+
+	while (bytesR > 0)
 	{
 		bytesW = write(fd_file_to, cp_ff, bytesR);
 
 		if (bytesW == -1)
 			print_error(99, file_to, 0);
 	}
-
 	if (bytesR == -1)
 		print_error(98, file_from, 0);
 
