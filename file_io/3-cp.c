@@ -70,27 +70,29 @@ int main(int argc, char *argv[])
 
 	fd_file_to = open(file_to, O_WRONLY | O_CREAT | O_TRUNC, 0664);
 	if (fd_file_to == -1)
-		print_error(99, file_to, 0);
-
-	while (1)
 	{
-		bytesR = read(fd_file_from, cp_ff, 1024);
-		if (bytesR == -1)
-                	print_error(98, file_from, 0);
-		
-		if (bytesR == 0)
-			break;
-
+		close(fd_file_from);
+		print_error(99, file_to, 0);
+	}
+	while ((bytesR = read(fd_file_from, cp_ff, 1024))> 0)
+	{
 		total_written = 0;
+
 		while (total_written < bytesR)
 		{
-			bytesW = write(fd_file_to, cp_ff + total_written, bytesR - total_written);
-
-			if (bytesW == -1)
+			bytesW = write(fd_file_to, cp_ff, bytesR);
+                	if (bytesW == -1)
+			{
+                        	close(fd_file_from);
+				close(fd_file_to);
 				print_error(99, file_to, 0);
+			}
 			total_written = total_written + bytesW;
 		}
 	}
+	if (bytesR == -1)
+               	print_error(98, file_from, 0);
+		
 	close_ff = close(fd_file_from);
 	if (close_ff == -1)
 		print_error(100, NULL, fd_file_from);
@@ -98,6 +100,5 @@ int main(int argc, char *argv[])
 	close_ft = close(fd_file_to);
 	if (close_ft == -1)
 		print_error(100, NULL, fd_file_to);
-
 	return (0);
 }
