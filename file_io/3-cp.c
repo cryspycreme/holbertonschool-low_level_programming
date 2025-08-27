@@ -68,18 +68,21 @@ int main(int argc, char *argv[])
 	if (fd_file_from == -1)
 		print_error(98, file_from, 0);
 
-	bytesR = read(fd_file_from, cp_ff, 1024);
-	if (bytesR == -1)
-		print_error(98, file_from, 0);
-
 	fd_file_to = open(file_to, O_RDWR | O_CREAT | O_TRUNC, 0664);
-	if (fd_file_to == -1)
-		print_error(99, file_to, 0);
-
-	bytesW = write(fd_file_to, cp_ff, bytesR);
-	if (bytesW == -1)
-		print_error(99, file_to, 0);
-
+        if (fd_file_to == -1)
+                print_error(99, file_to, 0);
+	
+	while ((bytesR = read(fd_file_from, cp_ff, 1024)) > 0)
+	{
+		if (bytesR == -1)
+			print_error(98, file_from, 0);
+			
+		bytesW = write(fd_file_to, cp_ff, bytesR);
+		
+		if (bytesW == -1)
+			print_error(99, file_to, 0);
+	}
+	
 	close_ff = close(fd_file_from);
 	if (close_ff == -1)
 		print_error(100, NULL, fd_file_from);
