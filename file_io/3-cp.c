@@ -19,7 +19,7 @@ void print_error(int exit_code, char *file_buffer, int fd_value)
 {
 	if (exit_code == 97)
 	{
-		dprintf(STDERR_FILENO, "Usage: cp file_from file_to");
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(exit_code);
 	}
 
