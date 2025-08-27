@@ -15,11 +15,11 @@
 int append_text_to_file(const char *filename, char *text_content)
 {
 	int file_desc, bytesW;
-	
+
 	if (filename != NULL)
 	{
 		file_desc = open(filename, O_RDWR | O_CREAT | O_EXCL | O_APPEND, 0664);
-		
+
 		if (file_desc == -1)
 			return (-1);
 	}
@@ -27,7 +27,7 @@ int append_text_to_file(const char *filename, char *text_content)
 	{
 		return (-1);
 	}
-	
+
 	if (text_content != NULL)
 	{
 		bytesW = write(file_desc, text_content, strlen(text_content));
