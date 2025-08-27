@@ -4,7 +4,7 @@
 #include <fcntl.h>
 #include "main.h"
 
-#define BUF_SIZE 1024
+#define BUF_SIZE 2000
 
 /**
  * print_error- prints error on error
@@ -68,7 +68,7 @@ int main(int argc, char *argv[])
 	if (fd_file_from == -1)
 		print_error(98, file_from, 0);
 
-	bytesR = read(fd_file_from, cp_ff, BUF_SIZE);
+	bytesR = read(fd_file_from, cp_ff, 1024);
 	if (bytesR == -1)
 		print_error(98, file_from, 0);
 
