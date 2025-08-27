@@ -64,7 +64,7 @@ int main(int argc, char *argv[])
 	if (file_from == NULL)
 		print_error(98, file_from, 0);
 
-	fd_file_from = open(file_from, O_RDWR);
+	fd_file_from = open(file_from, O_RDONLY);
 	if (fd_file_from == -1)
 		print_error(98, file_from, 0);
 
