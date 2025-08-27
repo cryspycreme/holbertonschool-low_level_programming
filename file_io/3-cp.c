@@ -31,7 +31,7 @@ void print_error(int exit_code, char *file_buffer, int fd_value)
 
 	if (exit_code == 99)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't write to file %s\n", file_buffer);
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_buffer);
 		exit(exit_code);
 	}
 
