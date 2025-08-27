@@ -3,6 +3,7 @@
 #include <fcntl.h>
 #include "main.h"
 #include <string.h>
+#include <sys/stat.h>
 
 /**
  * append_text_to_file - function that appends text at the end of a file
@@ -12,6 +13,12 @@
  * Return: 1 on success, -1 on failure.
  */
 
+int file_exists_stat(const char *filename)
+{
+	struct stat buffer;
+	return (stat(filename, &buffer) == 0);
+}
+
 int append_text_to_file(const char *filename, char *text_content)
 {
 	int file_desc, bytesW;
@@ -19,7 +26,7 @@ int append_text_to_file(const char *filename, char *text_content)
 	if (filename == NULL)
 		return (-1);
 
-	if (access(filename, F_OK) == 0)
+	if (file_exists_stat(filename) == 0)
 	{
 		file_desc = open(filename, O_RDWR | O_CREAT | O_APPEND, 0664);
 		if (file_desc == -1)
