@@ -55,7 +55,7 @@ int main(int argc, char *argv[])
 {
 	char *file_from = argv[1];
 	char *file_to = argv[2];
-	int fd_file_from, bytesR, bytesW, fd_file_to, close_ff, close_ft, total_wr;
+	int fd_file_from, bytesR, fd_file_to, close_ff, close_ft;
 	char cp_ff[BUF_SIZE];
 
 	if (argc != 3)
@@ -68,7 +68,8 @@ int main(int argc, char *argv[])
 	if (fd_file_from == -1)
 		print_error(98, file_from, 0);
 
-	fd_file_to = open(file_to, O_WRONLY | O_CREAT | O_TRUNC, 0664);
+	fd_file_to = open(file_to, O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR
+	| S_IRGRP | S_IWGRP | S_IROTH);
 	if (fd_file_to == -1)
 	{
 		close(fd_file_from);
@@ -76,18 +77,14 @@ int main(int argc, char *argv[])
 	}
 	while ((bytesR = read(fd_file_from, cp_ff, 1024))> 0)
 	{
-		total_wr = 0;
-
-		while (total_wr < bytesR)
+		if (bytesR == -1)
 		{
-			bytesW = write(fd_file_to, cp_ff + total_wr, bytesR - total_wr);
-                	if (bytesW == -1)
-			{
-                        	close(fd_file_from);
-				close(fd_file_to);
-				print_error(99, file_to, 0);
-			}
-			total_wr = total_wr + bytesW;
+			print_error(98, file_from, 0);
+		}
+		bytesR = write(fd_file_to, cp_ff, bytesR);
+		if (bytesR == -1)
+		{
+			print_error(99, file_to, 0);
 		}
 	}
 	if (bytesR == -1)
