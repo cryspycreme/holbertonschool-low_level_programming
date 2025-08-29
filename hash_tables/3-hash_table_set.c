@@ -4,6 +4,7 @@
 
 /**
  * hash_table_set - adds an element to the hash table
+ * @ht: hash table struct
  * @key: the key that is not empty
  * @value: value associated with key
  *
@@ -14,15 +15,15 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int index;
 	hash_node_t *new_node, *node;
-	
+
 	/*determine index of key*/
 	index = key_index((const unsigned char *)key, ht->size);
-	
+
 	if ((ht == NULL) || (key == NULL) || (key[0] == '\0') || (value == NULL))
 		return (0);
-	
+
 	node = ht->array[index];
-	
+
 	while (node != NULL)
 	{
 		if (node->key == key)
@@ -35,7 +36,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 			new_node = malloc(sizeof(hash_node_t)); /*allocate mem for new node*/
 			if (new_node == NULL)
 				return (0);
-				
+
 			new_node->key = strdup(key);
 			new_node->value = strdup(value);
 			new_node->next = node; /*insert at beginning*/
