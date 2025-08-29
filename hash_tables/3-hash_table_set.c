@@ -16,32 +16,32 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	unsigned long int index;
 	hash_node_t *new_node, *node;
 
-	/*determine index of key*/
-	index = key_index((const unsigned char *)key, ht->size);
-
 	if ((ht == NULL) || (key == NULL) || (key[0] == '\0') || (value == NULL))
 		return (0);
+
+	/*determine index of key*/
+        index = key_index((const unsigned char *)key, ht->size);
 
 	node = ht->array[index];
 
 	while (node != NULL)
 	{
-		if (node->key == key)
+		if (strcmp(node->key, key) == 0)
 		{
 			free(node->value);
 			node->value = strdup(value); /*duplicate value*/
+			return (1);
 		}
-		else
-		{
-			new_node = malloc(sizeof(hash_node_t)); /*allocate mem for new node*/
-			if (new_node == NULL)
-				return (0);
-
-			new_node->key = strdup(key);
-			new_node->value = strdup(value);
-			new_node->next = node; /*insert at beginning*/
-			node = new_node; /*new_node becomes head of linked list*/
-		}
+		node = node->next;
 	}
+
+	new_node = malloc(sizeof(hash_node_t)); /*allocate mem for new node*/
+	if (new_node == NULL)
+		return (0);
+
+	new_node->key = strdup(key);
+	new_node->value = strdup(value);
+	new_node->next = ht->array[index]; /*insert at beginning*/
+	ht->array[index] = new_node; /*new_node becomes head of linked list*/
 	return (1);
 }
