@@ -19,7 +19,7 @@ hash_table_t *hash_table_create(unsigned long int size)
 		return (NULL);
 
 	hash_t = malloc(sizeof(hash_table_t));
-	if (hash_t == NULL) 
+	if (hash_t == NULL)
 		return (NULL);
 
 	/*set the size field of struct*/
